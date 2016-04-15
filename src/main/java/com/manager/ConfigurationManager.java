@@ -9,6 +9,7 @@ public class ConfigurationManager {
     public static final String USER_INFO_PATH = "USER_INFO_PATH";
     public static final String ADMIN_INFO_PATH = "ADMIN_INFO_PATH";
     public static final String ADMIN_ADD_INFO_PATH = "ADMIN_ADD_INFO_PATH";
+    public static final String ADMIN_ADD_PAYMENT = "ADMIN_ADD_PAYMENT";
     
 
     //path to config.properties that contains paths
