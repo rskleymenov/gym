@@ -11,7 +11,6 @@
 	href="https://bootswatch.com/simplex/bootstrap.css">
 </head>
 <body>
-	<c:set var="adminInformation" scope="session" value="${user}" />
 	<div class="container">
 		<jsp:include page="header.jsp" />
 		<div class="row">

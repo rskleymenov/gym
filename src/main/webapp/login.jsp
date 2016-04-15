@@ -18,19 +18,14 @@
 			<form method="POST" action="controller">
 				<input type="hidden" name="command" value="login" />
 
-				<p>
-					<input type="text" name="email" value="" required="true"
-						pattern="^[a-z0-9_-]{3,15}$" placeholder="Email" />
-				</p>
+				<p><input type="text" name="email" value="" required="true"
+						pattern="^[a-z0-9_-]{3,15}$" placeholder="Email" /></p>
 
-				<p>
-					<input type="password" name="password" value="" required="true"
-						pattern="^[a-z0-9_-]{4,15}$" placeholder="Password" />
-				</p>
+				<p><input type="password" name="password" value=""
+						required="true" pattern="^[a-z0-9_-]{4,15}$"
+						placeholder="Password" /></p>
 
-				<p class="submit">
-					<input type="submit" value="Submit">
-				</p>
+				<p class="submit"><input type="submit" value="Submit"></p>
 			</form>
 		</div>
 	</section>

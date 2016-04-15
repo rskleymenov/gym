@@ -6,8 +6,11 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.commands.Command;
+import com.commands.impl.FindUserByIdNameSurnameCommand;
 import com.commands.impl.LoginCommand;
+import com.commands.impl.LogoutCommand;
 import com.commands.impl.NoCommand;
+import com.commands.impl.RedirectToAddPaymentInfoPageCommand;
 
 public class RequestHelper {
 	private static RequestHelper instance;
@@ -16,6 +19,9 @@ public class RequestHelper {
 	
 	private RequestHelper() {
 		commands.put("login", new LoginCommand());
+		commands.put("logout", new LogoutCommand());
+		commands.put("toAddPaymentById", new RedirectToAddPaymentInfoPageCommand());
+		commands.put("findUserByIdOrElse", new FindUserByIdNameSurnameCommand());
 	}
 
 	// return single instance
