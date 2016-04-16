@@ -8,8 +8,10 @@ public class ConfigurationManager {
     public static final String LOGIN_PAGE_PATH = "LOGIN_PAGE_PATH";
     public static final String USER_INFO_PATH = "USER_INFO_PATH";
     public static final String ADMIN_INFO_PATH = "ADMIN_INFO_PATH";
-    public static final String ADMIN_ADD_INFO_PATH = "ADMIN_ADD_INFO_PATH";
+    public static final String FIND_USER_PATH = "FIND_USER_PATH";
     public static final String ADMIN_ADD_PAYMENT = "ADMIN_ADD_PAYMENT";
+    public static final String ADMIN_ADD_COST = "ADMIN_ADD_COST";
+    public static final String ADMIN_PAYMENT_INFO = "ADMIN_PAYMENT_INFO";
     
 
     //path to config.properties that contains paths

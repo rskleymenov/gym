@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.commands.Command;
 import com.manager.ConfigurationManager;
 
-public class RedirectToAddPaymentInfoPageCommand  implements Command{
+public class RedirectToFindUserPageCommand  implements Command{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		return ConfigurationManager.getInstance().getProperty(ConfigurationManager.ADMIN_ADD_INFO_PATH);
+		return ConfigurationManager.getInstance().getProperty(ConfigurationManager.FIND_USER_PATH);
 	}
 
 }

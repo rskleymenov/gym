@@ -8,24 +8,16 @@ import org.hibernate.classic.Session;
 import org.hibernate.criterion.Restrictions;
 
 import com.entity.User;
+import com.persistance.utils.HibernateUtil;
 
 public class UserDAO {
 	private Session currentSession;
 	private Transaction currentTransaction;
 
-	private Session openCurrentSession() {
-		this.currentSession = HibernateUtil.getSessionFactory().openSession();
-		return currentSession;
-	}
-
 	private Session openCurrentSessionwithTransaction() {
 		this.currentSession = HibernateUtil.getSessionFactory().openSession();
 		this.currentTransaction = currentSession.beginTransaction();
 		return currentSession;
-	}
-
-	private void closeCurrentSession() {
-		this.currentSession.close();
 	}
 
 	private void closeCurrentSessionwithTransaction() {
@@ -46,9 +38,9 @@ public class UserDAO {
 	}
 
 	public User findById(int id) {
-		openCurrentSession();
+		openCurrentSessionwithTransaction();
 		User user = (User) currentSession.get(User.class, id);
-		closeCurrentSession();
+		closeCurrentSessionwithTransaction();
 		return user;
 	}
 
@@ -60,31 +52,31 @@ public class UserDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<User> findAll() {
-		openCurrentSession();
+		openCurrentSessionwithTransaction();
 		List<User> users = this.currentSession.createQuery("from User").list();
-		closeCurrentSession();
+		closeCurrentSessionwithTransaction();
 		return users;
 	}
 
 	public User findByLoginAndPassword(String email, String password) {
-		openCurrentSession();
+		openCurrentSessionwithTransaction();
 		User user = (User) this.currentSession.createCriteria(User.class).add(Restrictions.eq("email", email))
 				.add(Restrictions.eq("password", password)).uniqueResult();
-		closeCurrentSession();
+		closeCurrentSessionwithTransaction();
 		return user;
 	}
 
 	public User findByNameAndSurname(String name, String surname) {
-		openCurrentSession();
+		openCurrentSessionwithTransaction();
 		User user = (User) this.currentSession.createCriteria(User.class).add(Restrictions.eq("name", name))
 				.add(Restrictions.eq("surname", surname)).uniqueResult();
-		closeCurrentSession();
+		closeCurrentSessionwithTransaction();
 		return user;
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<User> findByNameOrSurname(String value, boolean isName) {
-		openCurrentSession();
+		openCurrentSessionwithTransaction();
 		String nameOrSurname = null;
 		if (isName) {
 			nameOrSurname = "name";
@@ -93,7 +85,7 @@ public class UserDAO {
 		}
 		List<User> users = this.currentSession.createCriteria(User.class).add(Restrictions.eq(nameOrSurname, value))
 				.list();
-		closeCurrentSession();
+		closeCurrentSessionwithTransaction();
 		return users;
 	}
 

@@ -1,4 +1,4 @@
-package com.persistance;
+package com.persistance.utils;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;

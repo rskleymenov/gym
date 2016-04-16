@@ -58,7 +58,7 @@
 				</form>
 				<br>
 				<form method="POST" action="controller">
-					<input type="hidden" name="command" value="toAddCotst" />
+					<input type="hidden" name="command" value="toAddCosts" />
 					<input class="btn btn-default btn-lg btn-block" type="submit"
 						value="Add costs">
 				</form>

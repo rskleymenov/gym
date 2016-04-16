@@ -17,11 +17,11 @@ th, td {
 </style>
 </head>
 <body>
-	<c:set var="myWidth" scope="session" value="70"/> 
+	<c:set var="myWidth" scope="session" value="70" />
 	<div class="container">
 		<jsp:include page="header.jsp" />
 		<div class="row">
-			<div class="col-xs-2" align="right">
+			<div class="col-xs-3" align="right">
 				<h3><b>User information:</b></h3>
 				<h4><c:out value="#" /></h4>
 				<h4><c:out value="Surname" /></h4>
@@ -46,10 +46,10 @@ th, td {
 				<h4><c:out value="${selectedUser.registrationDate}" /></h4>
 				<h4><c:out value="${selectedUser.sex}" /></h4>
 			</div>
-			<div class="col-xs-8">
+			<div class="col-xs-7">
 				<h3><b>Months to pay:</b></h3>
 				<form method="POST" action="controller">
-				<input type="hidden" name="command" value="confirmPayment" />
+					<input type="hidden" name="command" value="confirmPayment" />
 					<table>
 						<tr>
 							<td width="${myWidth}"><h5><c:out value="January" /></h5></td>
@@ -66,22 +66,68 @@ th, td {
 							<td width="${myWidth}"><h5><c:out value="December" /></h5></td>
 						</tr>
 						<tr>
-							<td width="${myWidth}"><input type="checkbox" name="month" value="1"></td>
-							<td width="${myWidth}"><input type="checkbox" name="month" value="2"></td>
-							<td width="${myWidth}"><input type="checkbox" name="month" value="3"></td>
-							<td width="${myWidth}"><input type="checkbox" name="month" value="4"></td>
-							<td width="${myWidth}"><input type="checkbox" name="month" value="5"></td>
-							<td width="${myWidth}"><input type="checkbox" name="month" value="6"></td>
-							<td width="${myWidth}"><input type="checkbox" name="month" value="7"></td>
-							<td width="${myWidth}"><input type="checkbox" name="month" value="8"></td>
-							<td width="${myWidth}"><input type="checkbox" name="month" value="9"></td>
-							<td width="${myWidth}"><input type="checkbox" name="month" value="10"></td>
-							<td width="${myWidth}"><input type="checkbox" name="month" value="11"></td>
-							<td width="${myWidth}"><input type="checkbox" name="month" value="12"></td>
+							<td width="${myWidth}"><input type="checkbox" name="month"
+									value="January"></td>
+							<td width="${myWidth}"><input type="checkbox" name="month"
+									value="February"></td>
+							<td width="${myWidth}"><input type="checkbox" name="month"
+									value="March"></td>
+							<td width="${myWidth}"><input type="checkbox" name="month"
+									value="April"></td>
+							<td width="${myWidth}"><input type="checkbox" name="month"
+									value="May"></td>
+							<td width="${myWidth}"><input type="checkbox" name="month"
+									value="June"></td>
+							<td width="${myWidth}"><input type="checkbox" name="month"
+									value="July"></td>
+							<td width="${myWidth}"><input type="checkbox" name="month"
+									value="August"></td>
+							<td width="${myWidth}"><input type="checkbox" name="month"
+									value="September"></td>
+							<td width="${myWidth}"><input type="checkbox" name="month"
+									value="October"></td>
+							<td width="${myWidth}"><input type="checkbox" name="month"
+									value="November"></td>
+							<td width="${myWidth}"><input type="checkbox" name="month"
+									value="December"></td>
 						</tr>
 					</table>
-					<input type="submit" value="Pay">
+					<br>
+					<input style="width: 100%;" class="btn btn-success" type="submit"
+						value="Pay">
 				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<h3 align="center"><b>Payments of user</b></h3>
+				<table class="table table-striped table-hover">
+					<tr>
+						<td>Expense</td>
+						<td>Date of payment</td>
+						<td>Year</td>
+						<td>Month</td>
+						<td>Type</td>
+						<td>Delete</td>
+					</tr>
+					<c:forEach items="${paymentsOfUser}" var="item">
+						<tr>
+							<td>${item.expense}</td>
+							<td>${item.createDate}</td>
+							<td>${item.paymentYear}</td>
+							<td>${item.paymentMonth}</td>
+							<td>${item.paymentType}</td>
+							<td>
+								<form method="POST" action="controller">
+									<input type="hidden" name="selectedPayment" value="${item.id}" />
+									<input type="hidden" name="command" value="deletePayment" />
+									<input type="submit" name="changeStatus" value="Delete"
+										class="btn btn-success" />
+								</form>
+							</td>
+						</tr>
+					</c:forEach>
+				</table>
 			</div>
 		</div>
 		<jsp:include page="footer.jsp" />

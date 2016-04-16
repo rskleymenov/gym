@@ -19,7 +19,7 @@
 				<input type="hidden" name="command" value="login" />
 
 				<p><input type="text" name="email" value="" required="true"
-						pattern="^[a-z0-9_-]{3,15}$" placeholder="Email" /></p>
+						 placeholder="Email" /></p>
 
 				<p><input type="password" name="password" value=""
 						required="true" pattern="^[a-z0-9_-]{4,15}$"

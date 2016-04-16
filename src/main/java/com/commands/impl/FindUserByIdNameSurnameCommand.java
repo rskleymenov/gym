@@ -23,7 +23,7 @@ public class FindUserByIdNameSurnameCommand implements Command {
 		String userInformation = request.getParameter(userInf);
 		List<User> users = userDAO.findUser(userInformation);
 		request.setAttribute("users", users);
-		return ConfigurationManager.getInstance().getProperty(ConfigurationManager.ADMIN_ADD_INFO_PATH);
+		return ConfigurationManager.getInstance().getProperty(ConfigurationManager.FIND_USER_PATH);
 	}
 
 }
