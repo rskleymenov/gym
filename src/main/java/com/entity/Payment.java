@@ -15,9 +15,6 @@ import javax.persistence.Table;
 
 import com.entity.enums.PaymentType;
 
-
-
-
 @Entity
 @Table(name = "payments")
 public class Payment implements Serializable {
@@ -31,6 +28,7 @@ public class Payment implements Serializable {
 	private User user;
 	private Double expense;
 	private Date createDate;
+	private String paymentCard;
 	private String paymentMonth;
 	private int paymentYear;
 	@Enumerated(EnumType.STRING)
@@ -82,6 +80,14 @@ public class Payment implements Serializable {
 		this.createDate = createDate;
 	}
 
+	public String getPaymentCard() {
+		return paymentCard;
+	}
+
+	public void setPaymentCard(String paymentCard) {
+		this.paymentCard = paymentCard;
+	}
+
 	public String getPaymentMonth() {
 		return paymentMonth;
 	}
@@ -106,12 +112,4 @@ public class Payment implements Serializable {
 		this.paymentType = paymentType;
 	}
 
-	@Override
-	public String toString() {
-		return "Payment [id=" + id + ", user= " + user.getName() + ", expense=" + expense + ", createDate="
-				+ createDate + ", paymentMonth=" + paymentMonth + ", paymentYear=" + paymentYear + ", paymentType="
-				+ paymentType + "]";
-	}
-
 }
-

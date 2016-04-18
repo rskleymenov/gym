@@ -96,6 +96,13 @@ th, td {
 					<input style="width: 100%;" class="btn btn-success" type="submit"
 						value="Pay">
 				</form>
+				<h4 style="color: red; text-align: center;"><c:choose>
+						<c:when test="${errorFlag == true}">
+							<br>
+							<b><c:out
+									value="ERROR: You have to choose at least one month!" /></b>
+						</c:when>
+					</c:choose></h4>
 			</div>
 		</div>
 		<div class="row">
@@ -103,17 +110,19 @@ th, td {
 				<h3 align="center"><b>Payments of user</b></h3>
 				<table class="table table-striped table-hover">
 					<tr>
-						<td>Expense</td>
-						<td>Date of payment</td>
-						<td>Year</td>
-						<td>Month</td>
-						<td>Type</td>
-						<td>Delete</td>
+						<th>Expense</th>
+						<th>Date of payment</th>
+						<th>Payment card</th>
+						<th>Year</th>
+						<th>Month</th>
+						<th>Type</th>
+						<th>Delete</th>
 					</tr>
 					<c:forEach items="${paymentsOfUser}" var="item">
 						<tr>
 							<td>${item.expense}</td>
 							<td>${item.createDate}</td>
+							<td>${item.paymentCard}</td>
 							<td>${item.paymentYear}</td>
 							<td>${item.paymentMonth}</td>
 							<td>${item.paymentType}</td>

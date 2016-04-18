@@ -12,6 +12,11 @@ public class ConfigurationManager {
     public static final String ADMIN_ADD_PAYMENT = "ADMIN_ADD_PAYMENT";
     public static final String ADMIN_ADD_COST = "ADMIN_ADD_COST";
     public static final String ADMIN_PAYMENT_INFO = "ADMIN_PAYMENT_INFO";
+    public static final String ADMIN_STATISTIC_PATH = "ADMIN_STATISTIC_PATH";
+    public static final String ADMIN_ADD_USER_PATH = "ADMIN_ADD_USER_PATH";
+    public static final String ADMIN_UPDATE_USER_PATH = "ADMIN_UPDATE_USER_PATH";
+    public static final String ADMIN_CHOOSED_USER_PATH = "ADMIN_CHOOSED_USER_PATH";
+    public static final String USER_CHANGE_PASSWORD_PATH = "USER_CHANGE_PASSWORD_PATH";
     
 
     //path to config.properties that contains paths

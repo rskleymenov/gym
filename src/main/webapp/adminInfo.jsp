@@ -24,6 +24,9 @@
 				<h4><c:out value="Room №" /></h4>
 				<h4><c:out value="Registered" /></h4>
 				<h4><c:out value="Sex" /></h4>
+				<h3><b>Payment information:</b></h3>
+				<h4><c:out value="Card №" /></h4>
+				<h4><c:out value="Price" /></h4>
 			</div>
 
 			<div class="col-xs-3">
@@ -36,7 +39,12 @@
 				<h4><c:out value="${user.roomNumber}" /></h4>
 				<h4><c:out value="${user.registrationDate}" /></h4>
 				<h4><c:out value="${user.sex}" /></h4>
+				<h3><b><br></b></h3>
+				<h4><c:out value="${billInformation.cardNumber}" /></h4>
+				<h4><c:out value="${billInformation.price}" /></h4>
+
 			</div>
+
 			<div class="col-xs-6">
 				<h3><b>Administrator menu:</b></h3>
 				<form method="POST" action="controller">
@@ -46,9 +54,15 @@
 				</form>
 				<br>
 				<form method="POST" action="controller">
-					<input type="hidden" name="command" value="toUserInformation" />
+					<input type="hidden" name="command" value="toAddUser" />
 					<input class="btn btn-default btn-lg btn-block" type="submit"
-						value="User information">
+						value="Add user">
+				</form>
+				<br>
+				<form method="POST" action="controller">
+					<input type="hidden" name="command" value="toUpdateUser" />
+					<input class="btn btn-default btn-lg btn-block" type="submit"
+						value="Update user">
 				</form>
 				<br>
 				<form method="POST" action="controller">
@@ -69,19 +83,6 @@
 						value="Change payment info">
 				</form>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-3" align="right">
-				<h3><b>Payment information:</b></h3>
-				<h4><c:out value="Card №" /></h4>
-				<h4><c:out value="Price" /></h4>
-			</div>
-			<div class="col-xs-3">
-				<h3><br></h3>
-				<h4><c:out value="${billInformation.cardNumber}" /></h4>
-				<h4><c:out value="${billInformation.price}" /></h4>
-			</div>
-			<div class="col-xs-6"></div>
 		</div>
 		<jsp:include page="footer.jsp" />
 	</div>

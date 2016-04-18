@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,7 +41,9 @@ public class User implements Serializable{
 	private int dormitoryNumber;
 	private int roomNumber;
 	private Date registrationDate;
+	@Enumerated(EnumType.STRING)
 	private Role role;
+	@Enumerated(EnumType.STRING)
 	private Sex sex;
 
 	@LazyCollection(LazyCollectionOption.FALSE)
