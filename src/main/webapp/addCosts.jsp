@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Administrator page</title>
+<title><fmt:message key="costs" /></title>
 <link rel="stylesheet"
 	href="https://bootswatch.com/simplex/bootstrap.css">
 <style>
@@ -23,20 +23,20 @@ th, td {
 	<div class="container">
 		<jsp:include page="header.jsp" />
 		<div class="row">
-			<h3>Add cost</h3>
+			<h3><fmt:message key="addCost" /></h3>
 			<form method="POST" action="controller">
 				<input type="hidden" name="command" value="addCost" />
 				<div class="col-xs-9">
 					<input width="100%" class="form-control" type="text" name="name"
-						value="" required="true" placeholder="Description" pattern=".{2,}" />
+						value="" required="true" placeholder="<fmt:message key="description" />..." pattern=".{2,}" />
 				</div>
 				<div class="col-xs-3">
 					<div class="input-group">
 						<input class="form-control" type="text" name="price" value=""
-							required="true" placeholder="Price..."
+							required="true" placeholder="<fmt:message key="price" />..."
 							pattern="^\d+(\.|)\d{1,2}?" />
 						<span class="input-group-btn">
-							<button class="btn btn-success" type="submit">Add cost!</button>
+							<button class="btn btn-success" type="submit"><fmt:message key="addCost" />!</button>
 						</span>
 					</div>
 				</div>
@@ -45,17 +45,17 @@ th, td {
 		</div>
 		<div class="row">
 			<br>
-			<h3>Costs</h3>
+			<h3><fmt:message key="costs" /></h3>
 			<div class="col-xs-12">
 				<table class="table table-striped table-hover">
 					<tr>
-						<th>Added by</th>
+						<th><fmt:message key="addedBy" /></th>
 						<th></th>
 						<th></th>
-						<th>Date</th>
-						<th>Description</th>
-						<th>Price</th>
-						<th>Delete</th>
+						<th><fmt:message key="date" /></th>
+						<th><fmt:message key="description" /></th>
+						<th><fmt:message key="price" /></th>
+						<th><fmt:message key="delete" /></th>
 					</tr>
 					<c:forEach items="${costs}" var="item">
 						<tr>
@@ -69,7 +69,7 @@ th, td {
 								<form method="POST" action="controller">
 									<input type="hidden" name="costId" value="${item.id}" />
 									<input type="hidden" name="command" value="chooseCostToDelete" />
-									<input type="submit" name="changeStatus" value="Delete"
+									<input type="submit" name="changeStatus" value="<fmt:message key="delete" />"
 										class="btn btn-danger" />
 								</form>
 							</td>
@@ -85,7 +85,7 @@ th, td {
 					<input type="hidden" name="command" value="toAdminPage" />
 					<button type="submit" class="btn btn-info btn-xs">
 						<span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
-						To admin page
+						<fmt:message key="toAdminPage" />
 					</button>
 				</form>
 			</div>

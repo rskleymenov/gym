@@ -38,12 +38,14 @@ public class LoginCommand implements Command {
 		if (user != null) {
 			switch (user.getRole()) {
 			case ADMIN: {
+				request.setAttribute("loginErrorFlag", false);
 				httpSession.setAttribute("user", user);
 				httpSession.setAttribute("billInformation", billInformation);
 				page = ConfigurationManager.getInstance().getProperty(ConfigurationManager.ADMIN_INFO_PATH);
 				break;
 			}
 			case USER: {
+				request.setAttribute("loginErrorFlag", false);
 				httpSession.setAttribute("user", user);
 				httpSession.setAttribute("billInformation", billInformation);
 				List<Payment> payments = paymentDAO.findPaymentsByUser(user.getId());
@@ -54,7 +56,8 @@ public class LoginCommand implements Command {
 			}
 
 		} else {
-			page = ConfigurationManager.getInstance().getProperty(ConfigurationManager.ERROR_PAGE_PATH);
+			request.setAttribute("loginErrorFlag", true);
+			page = ConfigurationManager.getInstance().getProperty(ConfigurationManager.LOGIN_PAGE_PATH);
 		}
 
 		return page;

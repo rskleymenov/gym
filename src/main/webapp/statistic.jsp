@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Administrator page</title>
+<title><fmt:message key="analytic" /></title>
 <link rel="stylesheet"
 	href="https://bootswatch.com/simplex/bootstrap.css">
 <style>
@@ -23,16 +23,18 @@ th, td {
 	<div class="container">
 		<jsp:include page="header.jsp" />
 		<div class="row">
-			<h3>Year</h3>
+			<h3><fmt:message key="year" /></h3>
 			<form method="POST" action="controller">
 				<input type="hidden" name="command" value="getStatistic" />
 				<div class="col-xs-12">
 					<div class="input-group">
 						<input class="form-control" type="number" min="2015" name="year"
-							value="" required="true" placeholder="Year..." />
+							value="" required="true"
+							placeholder="<fmt:message key="year" />..." />
 						<span class="input-group-btn">
-							<button class="btn btn-success" type="submit">Calculate
-								statistic!</button>
+							<button class="btn btn-success" type="submit">
+								<fmt:message key="calculateStatistic" />
+							</button>
 						</span>
 					</div>
 				</div>
@@ -41,12 +43,12 @@ th, td {
 		</div>
 		<div class="row">
 			<br>
-			<h3 align="middle">Payments by months</h3>
+			<h3 align="middle"><fmt:message key="paymentsByMonths" /></h3>
 			<div class="col-xs-12">
 				<table class="table table-striped table-hover">
 					<tr>
-						<th width="50%">Expense</th>
-						<th width="50%">Month</th>
+						<th width="50%"><fmt:message key="expense" /></th>
+						<th width="50%"><fmt:message key="month" /></th>
 					</tr>
 					<c:forEach items="${byMonthList}" var="item">
 						<tr>
@@ -59,12 +61,12 @@ th, td {
 		</div>
 		<div class="row">
 			<br>
-			<h3 align="center">Payments by money type</h3>
+			<h3 align="center"><fmt:message key="paymentsByMoneyType" /></h3>
 			<div class="col-xs-12">
 				<table class="table table-striped table-hover">
 					<tr>
-						<th width="50%">Expense</th>
-						<th width="50%">Money type</th>
+						<th width="50%"><fmt:message key="expense" /></th>
+						<th width="50%"><fmt:message key="moneyType" /></th>
 					</tr>
 					<c:forEach items="${byTypeList}" var="item">
 						<tr>
@@ -77,12 +79,12 @@ th, td {
 		</div>
 		<div class="row">
 			<br>
-			<h3 align="center">Payments by year</h3>
+			<h3 align="center"><fmt:message key="paymentsByYear" /></h3>
 			<div class="col-xs-12">
 				<table class="table table-striped table-hover">
 					<tr>
-						<th width="50%">Expense</th>
-						<th width="50%">Year</th>
+						<th width="50%"><fmt:message key="expense" /></th>
+						<th width="50%"><fmt:message key="year" /></th>
 					</tr>
 					<c:forEach items="${byYearList}" var="item">
 						<tr>
@@ -100,7 +102,7 @@ th, td {
 					<input type="hidden" name="command" value="toAdminPage" />
 					<button type="submit" class="btn btn-info btn-xs">
 						<span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
-						To admin page
+						<fmt:message key="toAdminPage" />
 					</button>
 				</form>
 			</div>

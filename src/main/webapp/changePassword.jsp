@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>User page</title>
+<title><fmt:message key="userPage" /></title>
 <link rel="stylesheet"
 	href="https://bootswatch.com/simplex/bootstrap.css">
 <style>
@@ -29,10 +29,10 @@ th, td {
 					<input type="hidden" name="command" value="changePassword" />
 					<br> <br> <br>
 					<table class="table table-striped">
-						<caption>Change password</caption>
+						<caption><fmt:message key="changePassword" /></caption>
 						<tr>
 							<td>
-								<h4><c:out value="Current password*" /></h4>
+								<h4><fmt:message key="currentPassword" /></h4>
 							<td width=50%; align="right">
 								<input class="form-control" type="password"
 									name="currentPassword" value="" required="true" pattern=".{4,}" />
@@ -40,7 +40,7 @@ th, td {
 						</tr>
 						<tr>
 							<td>
-								<h4><c:out value="New password*" /></h4>
+								<h4><fmt:message key="newPassword" /></h4>
 							</td>
 							<td align="right">
 								<input class="form-control" type="password" name="newPassword"
@@ -49,7 +49,7 @@ th, td {
 						</tr>
 						<tr>
 							<td>
-								<h4><c:out value="Confirm password*" /></h4>
+								<h4><fmt:message key="confirmPassword" /></h4>
 							</td>
 							<td align="right">
 								<input class="form-control" type="password"
@@ -58,19 +58,18 @@ th, td {
 						</tr>
 					</table>
 					<input style="width: 100%;" class="btn btn-success" type="submit"
-						value="Change">
+						value=<fmt:message key="submit" />>
 				</form>
 				<h4 style="color: red; text-align: center;"><c:choose>
 						<c:when test="${errorFlag == true}">
 							<br>
-							<b><c:out
-									value="ERROR: Bad current password or bad confirmed password" /></b>
+							<b><fmt:message key="badPassword" /></b>
 						</c:when>
 					</c:choose></h4>
 				<h4 style="color: green; text-align: center;"><c:choose>
 						<c:when test="${errorFlag == false}">
 							<br>
-							<b><c:out value="Password successfully changed" /></b>
+							<b><fmt:message key="goodPassword" /></b>
 						</c:when>
 					</c:choose></h4>
 			</div>
@@ -84,7 +83,7 @@ th, td {
 					<input type="hidden" name="command" value="toUserPage" />
 					<button type="submit" class="btn btn-info btn-xs">
 						<span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
-						To user page
+						<fmt:message key="toUserPage" />
 					</button>
 				</form>
 			</div>

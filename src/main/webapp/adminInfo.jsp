@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Administrator page</title>
+<title><fmt:message key="adminPage" /></title>
 <link rel="stylesheet"
 	href="https://bootswatch.com/simplex/bootstrap.css">
 <style>

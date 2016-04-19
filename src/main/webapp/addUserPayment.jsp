@@ -27,7 +27,7 @@ th {
 	<div class="container">
 		<jsp:include page="header.jsp" />
 		<div class="row">
-			<div class="col-xs-5">
+			<div class="col-xs-4">
 				<h3 align="center"><b><fmt:message key="yourInfo" /></b></h3>
 				<table class="table table-striped">
 					<tr>
@@ -68,7 +68,7 @@ th {
 					</tr>
 				</table>
 			</div>
-			<div class="col-xs-7">
+			<div class="col-xs-8">
 				<h3 align="center"><b><fmt:message key="monthsToPay" /></b></h3>
 				<form method="POST" action="controller">
 					<input type="hidden" name="command" value="confirmPayment" />

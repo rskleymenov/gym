@@ -32,6 +32,12 @@
 
 				<p class="submit"><input type="submit"
 						value="<fmt:message key="submit"/>"></p>
+				<h3 style="color: red; text-align: center;"><c:choose>
+						<c:when test="${loginErrorFlag == true}">
+							<br>
+							<b><fmt:message key="incorrectPasswordOrLogin" /></b>
+						</c:when>
+					</c:choose></h3>
 			</form>
 		</div>
 		<div style="margin-top: 25px;">
