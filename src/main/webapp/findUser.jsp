@@ -6,13 +6,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Add payment by id</title>
+<title>Users' payments</title>
 <link rel="stylesheet"
 	href="https://bootswatch.com/simplex/bootstrap.css">
 <style>
 th, td {
-    text-align: center;
-    vertical-align: middle !important;
+	text-align: center;
+	vertical-align: middle !important;
 }
 </style>
 </head>
@@ -29,7 +29,7 @@ th, td {
 						<input type="text" name="userInformation" value="" required="true"
 							class="form-control" placeholder="Search for user...">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">Go!</button>
+							<button class="btn btn-success" type="submit">Go!</button>
 						</span>
 					</div>
 				</form>
@@ -76,6 +76,18 @@ th, td {
 						</tr>
 					</c:forEach>
 				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<br> <br>
+				<form method="POST" action="controller">
+					<input type="hidden" name="command" value="toAdminPage" />
+					<button type="submit" class="btn btn-info btn-xs">
+						<span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+						To admin page
+					</button>
+				</form>
 			</div>
 		</div>
 		<jsp:include page="footer.jsp" />

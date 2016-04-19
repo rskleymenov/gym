@@ -24,7 +24,6 @@ public class AddCostCommand implements Command {
 		String name = request.getParameter("name");
 		String price = request.getParameter("price");
 		User user = (User) request.getSession().getAttribute("user");
-		System.out.println(user);
 		Cost cost = new Cost(user, new Date(new java.util.Date().getTime()), name, Double.valueOf(price));
 		costDAO.persist(cost);
 		List<Cost> costs = costDAO.findAll();

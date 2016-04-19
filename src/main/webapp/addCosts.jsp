@@ -25,14 +25,14 @@ th, td {
 				<input type="hidden" name="command" value="addCost" />
 				<div class="col-xs-9">
 					<input width="100%" class="form-control" type="text" name="name"
-						value="" required="true" placeholder="Description" />
+						value="" required="true" placeholder="Description" pattern=".{2,}"/>
 				</div>
 				<div class="col-xs-3">
 					<div class="input-group">
 						<input class="form-control" type="text" name="price" value=""
-							required="true" placeholder="Price..." />
+							required="true" placeholder="Price..." pattern="^\d+(\.|)\d{1,2}?"/>
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">Add cost!</button>
+							<button class="btn btn-success" type="submit">Add cost!</button>
 						</span>
 					</div>
 				</div>
@@ -45,13 +45,13 @@ th, td {
 			<div class="col-xs-12">
 				<table class="table table-striped table-hover">
 					<tr>
-						<td>Added by</td>
-						<td></td>
-						<td></td>
-						<td>Date</td>
-						<td>Description</td>
-						<td>Price</td>
-						<td>Delete</td>
+						<th>Added by</th>
+						<th></th>
+						<th></th>
+						<th>Date</th>
+						<th>Description</th>
+						<th>Price</th>
+						<th>Delete</th>
 					</tr>
 					<c:forEach items="${costs}" var="item">
 						<tr>
@@ -66,12 +66,24 @@ th, td {
 									<input type="hidden" name="costId" value="${item.id}" />
 									<input type="hidden" name="command" value="chooseCostToDelete" />
 									<input type="submit" name="changeStatus" value="Delete"
-										class="btn btn-success" />
+										class="btn btn-danger" />
 								</form>
 							</td>
 						</tr>
 					</c:forEach>
 				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<br> <br>
+				<form method="POST" action="controller">
+					<input type="hidden" name="command" value="toAdminPage" />
+					<button type="submit" class="btn btn-info btn-xs">
+						<span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+						To admin page
+					</button>
+				</form>
 			</div>
 		</div>
 		<jsp:include page="footer.jsp" />

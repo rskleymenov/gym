@@ -25,10 +25,11 @@ th, td {
 				<input type="hidden" name="command" value="getStatistic" />
 				<div class="col-xs-12">
 					<div class="input-group">
-						<input class="form-control" type="text" name="year" value=""
-							required="true" placeholder="Year..." />
+						<input class="form-control" type="number" min="2015" name="year"
+							value="" required="true" placeholder="Year..." />
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">Calculate statistic!</button>
+							<button class="btn btn-success" type="submit">Calculate
+								statistic!</button>
 						</span>
 					</div>
 				</div>
@@ -37,12 +38,12 @@ th, td {
 		</div>
 		<div class="row">
 			<br>
-			<h3>Payments by months</h3>
+			<h3 align="middle">Payments by months</h3>
 			<div class="col-xs-12">
 				<table class="table table-striped table-hover">
 					<tr>
-						<td width="50%">Expense</td>
-						<td width="50%">Month</td>
+						<th width="50%">Expense</th>
+						<th width="50%">Month</th>
 					</tr>
 					<c:forEach items="${byMonthList}" var="item">
 						<tr>
@@ -55,12 +56,12 @@ th, td {
 		</div>
 		<div class="row">
 			<br>
-			<h3>Payments by money type</h3>
+			<h3 align="center">Payments by money type</h3>
 			<div class="col-xs-12">
 				<table class="table table-striped table-hover">
 					<tr>
-						<td width="50%">Expense</td>
-						<td width="50%">Money type</td>
+						<th width="50%">Expense</th>
+						<th width="50%">Money type</th>
 					</tr>
 					<c:forEach items="${byTypeList}" var="item">
 						<tr>
@@ -73,12 +74,12 @@ th, td {
 		</div>
 		<div class="row">
 			<br>
-			<h3>Payments by year</h3>
+			<h3 align="center">Payments by year</h3>
 			<div class="col-xs-12">
 				<table class="table table-striped table-hover">
 					<tr>
-						<td width="50%">Expense</td>
-						<td width="50%">Year</td>
+						<th width="50%">Expense</th>
+						<th width="50%">Year</th>
 					</tr>
 					<c:forEach items="${byYearList}" var="item">
 						<tr>
@@ -87,6 +88,18 @@ th, td {
 						</tr>
 					</c:forEach>
 				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<br> <br>
+				<form method="POST" action="controller">
+					<input type="hidden" name="command" value="toAdminPage" />
+					<button type="submit" class="btn btn-info btn-xs">
+						<span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+						To admin page
+					</button>
+				</form>
 			</div>
 		</div>
 		<jsp:include page="footer.jsp" />

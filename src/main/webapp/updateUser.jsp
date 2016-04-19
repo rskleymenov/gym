@@ -78,6 +78,18 @@ th, td {
 				</table>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<br> <br>
+				<form method="POST" action="controller">
+					<input type="hidden" name="command" value="toAdminPage" />
+					<button type="submit" class="btn btn-info btn-xs">
+						<span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+						To admin page
+					</button>
+				</form>
+			</div>
+		</div>
 		<jsp:include page="footer.jsp" />
 	</div>
 </body>

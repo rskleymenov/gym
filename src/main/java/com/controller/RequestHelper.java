@@ -24,6 +24,7 @@ import com.commands.impl.LogoutCommand;
 import com.commands.impl.NoCommand;
 import com.commands.impl.RedirectToAddCostsCommand;
 import com.commands.impl.RedirectToAddUserCommand;
+import com.commands.impl.RedirectToAdminPageCommand;
 import com.commands.impl.RedirectToAnalyticCommand;
 import com.commands.impl.RedirectToFindUserPageCommand;
 import com.commands.impl.RedirectToFindUserToUpdateCommand;
@@ -66,6 +67,7 @@ public class RequestHelper {
 		commands.put("toChangePassword", new RedirectToUserChangePasswordCommand());
 		commands.put("changePassword", new ChangePasswordCommand());
 		commands.put("toUserPage", new RedirectToUserPageCommand());
+		commands.put("toAdminPage", new RedirectToAdminPageCommand());
 	}
 
 	// return single instance

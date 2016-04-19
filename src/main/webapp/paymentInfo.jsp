@@ -25,12 +25,13 @@ th, td {
 				<input type="hidden" name="command" value="addBillInformation" />
 				<div class="col-xs-6">
 					<input width="100%" class="form-control" type="text" name="card"
-						value="" required="true" placeholder="Card №" />
+						value="" required="true" placeholder="Your card № #### #### #### ####"
+							pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}" />
 				</div>
 				<div class="col-xs-6">
 					<div class="input-group">
 						<input class="form-control" type="text" name="price" value=""
-							required="true" placeholder="Price..." />
+							required="true" placeholder="Price..." pattern="^\d+(\.|)\d{1,2}?"/>
 						<span class="input-group-btn">
 							<button class="btn btn-default" type="submit">Add card!</button>
 						</span>
@@ -75,6 +76,18 @@ th, td {
 						</tr>
 					</c:forEach>
 				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<br> <br>
+				<form method="POST" action="controller">
+					<input type="hidden" name="command" value="toAdminPage" />
+					<button type="submit" class="btn btn-info btn-xs">
+						<span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+						To admin page
+					</button>
+				</form>
 			</div>
 		</div>
 		<jsp:include page="footer.jsp" />

@@ -9,81 +9,161 @@
 <title>Administrator page</title>
 <link rel="stylesheet"
 	href="https://bootswatch.com/simplex/bootstrap.css">
+<style>
+input {
+	font-weight: bold !important;
+}
+</style>
 </head>
 <body>
 	<div class="container">
 		<jsp:include page="header.jsp" />
 		<div class="row">
-			<div class="col-xs-3" align="right">
-				<h3><b>Your information:</b></h3>
-				<h4><c:out value="Surname" /></h4>
-				<h4><c:out value="Name" /></h4>
-				<h4><c:out value="Patronymic" /></h4>
-				<h4><c:out value="Email" /></h4>
-				<h4><c:out value="Dormitory №" /></h4>
-				<h4><c:out value="Room №" /></h4>
-				<h4><c:out value="Registered" /></h4>
-				<h4><c:out value="Sex" /></h4>
-				<h3><b>Payment information:</b></h3>
-				<h4><c:out value="Card №" /></h4>
-				<h4><c:out value="Price" /></h4>
+			<div class="col-xs-1"></div>
+			<div class="col-xs-5">
+				<h3 align="center"><b>Your information</b></h3>
+				<table class="table table-striped">
+					<tr>
+						<td>
+							<c:out value="#" />
+						</td>
+						<td>
+							<c:out value="${user.id}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<c:out value="Surname" />
+						</td>
+						<td>
+							<c:out value="${user.surname}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<c:out value="Name" />
+						</td>
+						<td>
+							<c:out value="${user.name}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<c:out value="Patronymic" />
+						</td>
+						<td>
+							<c:out value="${user.patronymic}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<c:out value="Email" />
+						</td>
+						<td>
+							<c:out value="${user.email}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<c:out value="Dormitory №" />
+						</td>
+						<td>
+							<c:out value="${user.dormitoryNumber}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<c:out value="Room №" />
+						</td>
+						<td>
+							<c:out value="${user.roomNumber}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<c:out value="Registered" />
+						</td>
+						<td>
+							<c:out value="${user.registrationDate}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<c:out value="Sex" />
+						</td>
+						<td>
+							<c:out value="${user.sex}" />
+						</td>
+					</tr>
+				</table>
 			</div>
 
-			<div class="col-xs-3">
-				<h3><br></h3>
-				<h4><c:out value="${user.surname}" /></h4>
-				<h4><c:out value="${user.name}" /></h4>
-				<h4><c:out value="${user.patronymic}" /></h4>
-				<h4><c:out value="${user.email}" /></h4>
-				<h4><c:out value="${user.dormitoryNumber}" /></h4>
-				<h4><c:out value="${user.roomNumber}" /></h4>
-				<h4><c:out value="${user.registrationDate}" /></h4>
-				<h4><c:out value="${user.sex}" /></h4>
-				<h3><b><br></b></h3>
-				<h4><c:out value="${billInformation.cardNumber}" /></h4>
-				<h4><c:out value="${billInformation.price}" /></h4>
-
-			</div>
-
-			<div class="col-xs-6">
-				<h3><b>Administrator menu:</b></h3>
+			<div class="col-xs-5">
+				<h3 align="center"><b>Administrator menu</b></h3>
 				<form method="POST" action="controller">
 					<input type="hidden" name="command" value="toAddPaymentById" />
-					<input class="btn btn-default btn-lg btn-block" type="submit"
-						value="Add payment by id">
+					<input class="btn btn-info btn-block" type="submit"
+						value="Users' payments">
 				</form>
 				<br>
 				<form method="POST" action="controller">
 					<input type="hidden" name="command" value="toAddUser" />
-					<input class="btn btn-default btn-lg btn-block" type="submit"
-						value="Add user">
+					<input class="btn btn-info btn-block" type="submit"
+						value="Create user">
 				</form>
 				<br>
 				<form method="POST" action="controller">
 					<input type="hidden" name="command" value="toUpdateUser" />
-					<input class="btn btn-default btn-lg btn-block" type="submit"
+					<input class="btn btn-info btn-block" type="submit"
 						value="Update user">
 				</form>
 				<br>
 				<form method="POST" action="controller">
 					<input type="hidden" name="command" value="toAnalytic" />
-					<input class="btn btn-default btn-lg btn-block" type="submit"
+					<input class="btn btn-info btn-block btn-block" type="submit"
 						value="Analytic">
 				</form>
 				<br>
 				<form method="POST" action="controller">
 					<input type="hidden" name="command" value="toAddCosts" />
-					<input class="btn btn-default btn-lg btn-block" type="submit"
-						value="Add costs">
+					<input class="btn btn-info btn-block" type="submit" value="Costs">
 				</form>
 				<br>
 				<form method="POST" action="controller">
 					<input type="hidden" name="command" value="toPaymentInfo" />
-					<input class="btn btn-default btn-lg btn-block" type="submit"
-						value="Change payment info">
+					<input class="btn btn-info btn-block" type="submit"
+						value="Bill info">
 				</form>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-xs-1"></div>
+			<div class="col-xs-10">
+				<h3 align="center"><b>Payment information</b></h3>
+				<table
+					style="text-align: center; vertical-align: middle !important;"
+					class="table table-striped">
+					<tr>
+						<td>
+							<c:out value="Card №" />
+						</td>
+						<td>
+							<c:out value="${billInformation.cardNumber}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<c:out value="Price" />
+						</td>
+						<td>
+							<c:out value="${billInformation.price}" />
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-xs-1"></div>
+		</div>
+		<br> <br> <br>
 		<jsp:include page="footer.jsp" />
 	</div>
 </body>

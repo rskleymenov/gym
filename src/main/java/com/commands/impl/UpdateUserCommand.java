@@ -42,8 +42,13 @@ public class UpdateUserCommand implements Command{
 		user.setRole(Role.valueOf(role));
 		user.setSex(Sex.valueOf(sex));
 		user.setRegistrationDate(new java.sql.Date(new Date().getTime()));
-		userDAO.update(user);
-		return ConfigurationManager.getInstance().getProperty(ConfigurationManager.ADMIN_UPDATE_USER_PATH);
+		try {
+			userDAO.update(user);
+			request.setAttribute("errorFlag", false);
+		} catch (Exception e){
+			request.setAttribute("errorFlag", true);
+		}
+		return ConfigurationManager.getInstance().getProperty(ConfigurationManager.ADMIN_CHOOSED_USER_PATH);
 	}
 
 }

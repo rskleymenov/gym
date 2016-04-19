@@ -40,8 +40,12 @@ public class AddUserCommand implements Command{
 		user.setRole(Role.valueOf(role));
 		user.setSex(Sex.valueOf(sex));
 		user.setRegistrationDate(new java.sql.Date(new Date().getTime()));
-		userDAO.persist(user);
-		System.out.println(user.getId());
+		try {
+			userDAO.persist(user);
+			request.setAttribute("errorFlag", false);
+		} catch (org.hibernate.exception.ConstraintViolationException e){
+			request.setAttribute("errorFlag", true);
+		}
 		return ConfigurationManager.getInstance().getProperty(ConfigurationManager.ADMIN_ADD_USER_PATH);
 	}
 
