@@ -3,6 +3,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<fmt:setLocale value="${myLocale}" />
+<fmt:setBundle basename="language" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,12 +28,13 @@ th, td {
 				<input type="hidden" name="command" value="addCost" />
 				<div class="col-xs-9">
 					<input width="100%" class="form-control" type="text" name="name"
-						value="" required="true" placeholder="Description" pattern=".{2,}"/>
+						value="" required="true" placeholder="Description" pattern=".{2,}" />
 				</div>
 				<div class="col-xs-3">
 					<div class="input-group">
 						<input class="form-control" type="text" name="price" value=""
-							required="true" placeholder="Price..." pattern="^\d+(\.|)\d{1,2}?"/>
+							required="true" placeholder="Price..."
+							pattern="^\d+(\.|)\d{1,2}?" />
 						<span class="input-group-btn">
 							<button class="btn btn-success" type="submit">Add cost!</button>
 						</span>

@@ -3,6 +3,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<fmt:setLocale value="${myLocale}" />
+<fmt:setBundle basename="language" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +24,7 @@ input {
 		<div class="row">
 			<div class="col-xs-1"></div>
 			<div class="col-xs-5">
-				<h3 align="center"><b>Your information</b></h3>
+				<h3 align="center"><b><fmt:message key="yourInfo"/></b></h3>
 				<table class="table table-striped">
 					<tr>
 						<td>
@@ -33,7 +36,7 @@ input {
 					</tr>
 					<tr>
 						<td>
-							<c:out value="Surname" />
+							<fmt:message key="surname"/>
 						</td>
 						<td>
 							<c:out value="${user.surname}" />
@@ -41,7 +44,7 @@ input {
 					</tr>
 					<tr>
 						<td>
-							<c:out value="Name" />
+							<fmt:message key="name"/>
 						</td>
 						<td>
 							<c:out value="${user.name}" />
@@ -49,7 +52,7 @@ input {
 					</tr>
 					<tr>
 						<td>
-							<c:out value="Patronymic" />
+							<fmt:message key="patronymic"/>
 						</td>
 						<td>
 							<c:out value="${user.patronymic}" />
@@ -57,7 +60,7 @@ input {
 					</tr>
 					<tr>
 						<td>
-							<c:out value="Email" />
+							<fmt:message key="email"/>
 						</td>
 						<td>
 							<c:out value="${user.email}" />
@@ -65,7 +68,7 @@ input {
 					</tr>
 					<tr>
 						<td>
-							<c:out value="Dormitory №" />
+							<fmt:message key="dormitory"/>
 						</td>
 						<td>
 							<c:out value="${user.dormitoryNumber}" />
@@ -73,7 +76,7 @@ input {
 					</tr>
 					<tr>
 						<td>
-							<c:out value="Room №" />
+							<fmt:message key="room"/>
 						</td>
 						<td>
 							<c:out value="${user.roomNumber}" />
@@ -81,7 +84,7 @@ input {
 					</tr>
 					<tr>
 						<td>
-							<c:out value="Registered" />
+							<fmt:message key="registered"/>
 						</td>
 						<td>
 							<c:out value="${user.registrationDate}" />
@@ -89,7 +92,7 @@ input {
 					</tr>
 					<tr>
 						<td>
-							<c:out value="Sex" />
+							<fmt:message key="sex"/>
 						</td>
 						<td>
 							<c:out value="${user.sex}" />
@@ -99,53 +102,53 @@ input {
 			</div>
 
 			<div class="col-xs-5">
-				<h3 align="center"><b>Administrator menu</b></h3>
+				<h3 align="center"><b><fmt:message key="adminMenu"/></b></h3>
 				<form method="POST" action="controller">
 					<input type="hidden" name="command" value="toAddPaymentById" />
 					<input class="btn btn-info btn-block" type="submit"
-						value="Users' payments">
+						value="<fmt:message key="userPayments"/>">
 				</form>
 				<br>
 				<form method="POST" action="controller">
 					<input type="hidden" name="command" value="toAddUser" />
 					<input class="btn btn-info btn-block" type="submit"
-						value="Create user">
+						value="<fmt:message key="createUser"/>">
 				</form>
 				<br>
 				<form method="POST" action="controller">
 					<input type="hidden" name="command" value="toUpdateUser" />
 					<input class="btn btn-info btn-block" type="submit"
-						value="Update user">
+						value="<fmt:message key="updateUser"/>">
 				</form>
 				<br>
 				<form method="POST" action="controller">
 					<input type="hidden" name="command" value="toAnalytic" />
 					<input class="btn btn-info btn-block btn-block" type="submit"
-						value="Analytic">
+						value="<fmt:message key="analytic"/>">
 				</form>
 				<br>
 				<form method="POST" action="controller">
 					<input type="hidden" name="command" value="toAddCosts" />
-					<input class="btn btn-info btn-block" type="submit" value="Costs">
+					<input class="btn btn-info btn-block" type="submit" value="<fmt:message key="costs"/>">
 				</form>
 				<br>
 				<form method="POST" action="controller">
 					<input type="hidden" name="command" value="toPaymentInfo" />
 					<input class="btn btn-info btn-block" type="submit"
-						value="Bill info">
+						value="<fmt:message key="billInfo"/>">
 				</form>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-1"></div>
 			<div class="col-xs-10">
-				<h3 align="center"><b>Payment information</b></h3>
+				<h3 align="center"><b><fmt:message key="paymentInfo"/></b></h3>
 				<table
 					style="text-align: center; vertical-align: middle !important;"
 					class="table table-striped">
 					<tr>
 						<td>
-							<c:out value="Card №" />
+							<fmt:message key="cardNumber"/>
 						</td>
 						<td>
 							<c:out value="${billInformation.cardNumber}" />
@@ -153,7 +156,7 @@ input {
 					</tr>
 					<tr>
 						<td>
-							<c:out value="Price" />
+							<fmt:message key="price"/>
 						</td>
 						<td>
 							<c:out value="${billInformation.price}" />

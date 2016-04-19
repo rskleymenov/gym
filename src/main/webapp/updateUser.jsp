@@ -3,10 +3,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<fmt:setLocale value="${myLocale}" />
+<fmt:setBundle basename="language" />
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Add payment by id</title>
+<title><fmt:message key="updateUser"/></title>
 <link rel="stylesheet"
 	href="https://bootswatch.com/simplex/bootstrap.css">
 <style>
@@ -27,9 +30,9 @@ th, td {
 					<input type="hidden" name="command" value="findUserForUpdate" />
 					<div class="input-group">
 						<input type="text" name="userInformation" value="" required="true"
-							class="form-control" placeholder="Search for user...">
+							class="form-control" placeholder="<fmt:message key="searchUser"/>">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">Go!</button>
+							<button class="btn btn-success" type="submit"><fmt:message key="go"/></button>
 						</span>
 					</div>
 				</form>
@@ -39,19 +42,19 @@ th, td {
 		<div class="row">
 			<div class="col-lg-12">
 				<table class="table table-striped table-hover">
-					<caption>Users</caption>
+					<caption><fmt:message key="users"/></caption>
 					<tr>
 						<td>#</td>
-						<td>Name</td>
-						<td>Surname</td>
-						<td>Patronymic</td>
-						<td>Email</td>
-						<td>Dor-y №</td>
-						<td>Room №</td>
-						<td>Reg-n date</td>
-						<td>Role</td>
-						<td>Sex</td>
-						<td>Pay</td>
+						<td><fmt:message key="name"/></td>
+						<td><fmt:message key="surname"/></td>
+						<td><fmt:message key="patronymic"/></td>
+						<td><fmt:message key="email"/></td>
+						<td><fmt:message key="dormitory"/></td>
+						<td><fmt:message key="room"/></td>
+						<td><fmt:message key="registered"/></td>
+						<td><fmt:message key="role"/></td>
+						<td><fmt:message key="sex"/></td>
+						<td><fmt:message key="pay"/></td>
 					</tr>
 					<c:forEach items="${usersForUpdate}" var="item">
 						<tr>
@@ -69,7 +72,7 @@ th, td {
 								<form method="POST" action="controller">
 									<input type="hidden" name="selectedUser" value="${item.id}" />
 									<input type="hidden" name="command" value="chooseUserToUpdate" />
-									<input type="submit" name="changeStatus" value="Choose"
+									<input type="submit" name="changeStatus" value=<fmt:message key="choose"/>
 										class="btn btn-success" />
 								</form>
 							</td>
@@ -85,7 +88,7 @@ th, td {
 					<input type="hidden" name="command" value="toAdminPage" />
 					<button type="submit" class="btn btn-info btn-xs">
 						<span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
-						To admin page
+						<fmt:message key="toAdminPage"/>
 					</button>
 				</form>
 			</div>

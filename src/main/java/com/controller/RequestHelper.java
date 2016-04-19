@@ -10,6 +10,7 @@ import com.commands.impl.AddCardCommand;
 import com.commands.impl.AddCostCommand;
 import com.commands.impl.AddUserCommand;
 import com.commands.impl.CalculateStatisticCommand;
+import com.commands.impl.ChangeLocaleCommand;
 import com.commands.impl.ChangePasswordCommand;
 import com.commands.impl.ChooseCardCommand;
 import com.commands.impl.ChooseUserForUpdate;
@@ -68,6 +69,7 @@ public class RequestHelper {
 		commands.put("changePassword", new ChangePasswordCommand());
 		commands.put("toUserPage", new RedirectToUserPageCommand());
 		commands.put("toAdminPage", new RedirectToAdminPageCommand());
+		commands.put("changeLocale", new ChangeLocaleCommand());
 	}
 
 	// return single instance
