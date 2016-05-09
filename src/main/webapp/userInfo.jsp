@@ -64,6 +64,14 @@ th {
 						<td><c:out value="${user.sex}" /></td>
 					</tr>
 				</table>
+				<table class="table table-striped">
+					<tr>
+						<th align="center"><fmt:message key="price" /></th>
+					</tr>
+					<tr>
+						<td align="center"><c:out value="${billInformation.price}" /></td>
+					</tr>
+				</table>
 			</div>
 			<div class="col-xs-8">
 				<h3><b><fmt:message key="monthsToPay" />:</b></h3>
@@ -138,22 +146,26 @@ th {
 					<br>
 					<div class="input-group">
 						<input class="form-control" type="text" name="cardNumber" value=""
-							required="true" placeholder="<fmt:message key="cardNumber"/> #### #### #### ####"
+							required="true"
+							placeholder="<fmt:message key="cardNumber"/> #### #### #### ####"
 							pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}" />
 						<span class="input-group-btn">
-							<button class="btn btn-success" type="submit"><fmt:message key="pay"/>!</button>
+							<button class="btn btn-success" type="submit">
+								<fmt:message key="pay" />
+								!
+							</button>
 						</span>
 					</div>
 				</form>
 				<br> <br> <br> <br>
 				<h4 style="color: red; text-align: center;"><c:choose>
 						<c:when test="${errorFlag == true}">
-							<b><fmt:message key="atLeastOneMonth"/></b>
+							<b><fmt:message key="atLeastOneMonth" /></b>
 						</c:when>
 					</c:choose></h4>
 				<h4 style="color: green; text-align: center;"><c:choose>
 						<c:when test="${errorFlag == false}">
-							<b><fmt:message key="paymentAdded"/></b>
+							<b><fmt:message key="paymentAdded" /></b>
 						</c:when>
 					</c:choose></h4>
 			</div>
